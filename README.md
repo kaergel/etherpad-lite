@@ -1,6 +1,6 @@
 # About
 
-Run [Etherpad](https://github.com/ether/etherpad-lite) inside a Docker container.
+Run [Etherpad Lite](https://github.com/ether/etherpad-lite) inside a Docker container.
 This variant of an Etherpad Docker container is characterized by:
 
 * Using SQLite as data backend.
