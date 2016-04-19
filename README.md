@@ -14,7 +14,7 @@ This variant of an Etherpad Docker container is characterized by:
 Start an Etherpad Lite instance listening on TCP port 9001:
 
 ```
-docker run -p 9001:9001 fuerst/etherpad-lite
+docker run -p 9001:9001 fuerst/etherpad-docker
 ```
 
 Set password for administration user named _admin_:
@@ -22,7 +22,7 @@ Set password for administration user named _admin_:
 ```
 docker run -p 9001:9001 \
   -e ETHERPAD_ADMIN_PASSWORD='my-secret-password' \
-  fuerst/etherpad-lite
+  fuerst/etherpad-docker
 ```
 
 Make plugins, database and settings persistent:
@@ -31,7 +31,7 @@ Make plugins, database and settings persistent:
 docker run -p 9001:9001 \
   -v /opt/etherpad-lite/var:/opt/etherpad-lite/var \
   -v /opt/etherpad-lite/node_modules:/opt/etherpad-lite/node_modules \
-  fuerst/etherpad-lite
+  fuerst/etherpad-docker
 ```
 
 Run Etherpad Lite version 1.5.7:
@@ -39,5 +39,5 @@ Run Etherpad Lite version 1.5.7:
 ```
 docker run -p 9001:9001 \
   -e ETHERPAD_VERSION='1.5.7' \
-  fuerst/etherpad-lite
+  fuerst/etherpad-docker
 ```
