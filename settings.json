@@ -31,10 +31,10 @@
 
   //The Type of the database. You can choose between dirty, postgres, sqlite and mysql
   //You shouldn't use "dirty" for for anything else than testing or development
-  "dbType" : "dirty",
+  "dbType" : "sqlite",
   //the database specific settings
   "dbSettings" : {
-                   "filename" : "var/dirty.db"
+                   "filename" : "var/etherpad.sq3"
                  },
 
   /* An Example of MySQL Configuration
@@ -79,7 +79,7 @@
      If you do not uncomment this, /admin will not be available! */
   "users": {
     "admin": {
-      "password": "etherpad",
+      "password": "",
       "is_admin": true
     }
   },

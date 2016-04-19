@@ -1,25 +1,43 @@
-etherpad-docker
-===============
+# About
 
-This is a Docker image which is nothing more than the basic test Etherpad setup as described on https://github.com/ether/etherpad-lite.
-(All of these instructions are as root.) To download the image from the Docker index, run:
+Run [Etherpad](https://github.com/ether/etherpad-lite) inside a Docker container.
+This variant of an Etherpad Docker container is characterized by:
 
-`docker pull leibnitius/etherpad-docker`
+* Using SQLite as data backend.
+* Allow using persistent volumes for data, plugins and settings.
+* Create administration user with configurable password.
+* Uses latest Etherpad Lite _develop_ version.
+* Allows to install another Etherpad Lite version (aka Git tag or branch).
 
-To run Etherpad on port 9001, run:
+# Usage
 
-`docker run -d -p 9001:9001 leibnitius/etherpad-docker`
+Start an Etherpad Lite instance listening on TCP port 9001:
 
-To run Etherpad on port 80, run:
+```
+docker run -p 9001:9001 fuerst/etherpad-lite
+```
 
-`docker run -d -p 80:9001 leibnitius/etherpad-docker`
+Set password for administration user named _admin_:
 
-To edit the Etherpad settings.json, it is necessary to clone the Git repository:
+```
+docker run -p 9001:9001 \
+  -e ETHERPAD_ADMIN_PASSWORD='my-secret-password' \
+  fuerst/etherpad-lite
+```
 
-`git clone git://github.com/ether/etherpad-docker.git && cd etherpad-docker`
+Make plugins, database and settings persistent:
 
-Then edit the settings.json to your liking and run:
+```
+docker run -p 9001:9001 \
+  -v /opt/etherpad-lite/var:/opt/etherpad-lite/var \
+  -v /opt/etherpad-lite/node_modules:/opt/etherpad-lite/node_modules \
+  fuerst/etherpad-lite
+```
 
-`docker build -t <YOUR_USERNAME>/etherpad-docker .`
+Run Etherpad Lite version 1.5.7:
 
-This image could also be used as a base for Docker Etherpad images integrated with MySQL, etc.
+```
+docker run -p 9001:9001 \
+  -e ETHERPAD_VERSION='1.5.7' \
+  fuerst/etherpad-lite
+```
