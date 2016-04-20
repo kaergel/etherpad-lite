@@ -3,21 +3,26 @@
 Run [Etherpad Lite](https://github.com/ether/etherpad-lite) inside a Docker container.
 This variant of an Etherpad Docker container is characterized by:
 
+At run time:
+
 * Using SQLite as data backend.
 * Allow using persistent volumes for data, plugins and settings.
 * Create administration user with configurable password.
-* Uses latest Etherpad Lite _develop_ version.
-* Allows to install another Etherpad Lite version (aka Git tag or branch).
+
+At image build time:
+
+* By default it uses the latest Etherpad Lite _develop_ version.
+* Allows to install another Etherpad Lite version (by Git tag or branch).
 
 # Usage
 
-Start an Etherpad Lite instance listening on TCP port 9001:
+## Start an Etherpad Lite instance listening on TCP port 9001:
 
 ```
 docker run -p 9001:9001 fuerst/etherpad-docker
 ```
 
-Set password for administration user named _admin_:
+## Set password for administration user named _admin_:
 
 ```
 docker run -p 9001:9001 \
@@ -25,7 +30,7 @@ docker run -p 9001:9001 \
   fuerst/etherpad-docker
 ```
 
-Make plugins, database and settings persistent:
+## Make plugins, database and settings persistent:
 
 ```
 docker run -p 9001:9001 \
@@ -34,10 +39,16 @@ docker run -p 9001:9001 \
   fuerst/etherpad-docker
 ```
 
-Run Etherpad Lite version 1.5.7:
+## Run Etherpad Lite version 1.5.7:
 
 ```
 docker run -p 9001:9001 \
   -e ETHERPAD_VERSION='1.5.7' \
-  fuerst/etherpad-docker
+  fuerst/etherpad-docker:1.5.7
+```
+
+Only releases _1.5.7_ and _develop_ are available from hub.docker.com. You may build any other release you want by specifying an etherpad-lite branch or tag when building your own image:
+
+```
+docker build -e ETHERPAD_VERSION='1.5.5' .
 ```
