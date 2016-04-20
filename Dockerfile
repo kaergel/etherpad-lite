@@ -20,7 +20,7 @@ RUN apt-get install -y sqlite3 unzip gzip curl python libssl-dev pkg-config buil
 WORKDIR /opt/
 
 # Grab the latest Git version
-RUN curl -SLO https://github.com/ether/etherpad-lite/archive/develop.zip \
+RUN curl -SLO https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.zip \
   && unzip ${ETHERPAD_VERSION}.zip \
   && rm ${ETHERPAD_VERSION}.zip \
   && mv etherpad-lite-${ETHERPAD_VERSION} etherpad-lite
