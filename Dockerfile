@@ -7,7 +7,7 @@
 # Version 1.0
 
 # Use Docker's nodejs, which is based on ubuntu
-FROM node:latest
+FROM node:0.12
 MAINTAINER Bernhard Fürst, bernhard.fuerst@fuerstnet.de
 
 # You may overwrite the version. Use a Git branch or tag from https://github.com/ether/etherpad-lite.
