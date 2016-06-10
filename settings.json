@@ -66,7 +66,7 @@
 
   /* This is the path to the Abiword executable. Setting it to null, disables abiword.
      Abiword is needed to advanced import/export features of pads*/
-  "abiword" : null,
+  "abiword" : "/usr/bin/abiword",
 
   /* This setting is used if you require authentication of all users.
      Note: /admin always requires authentication. */

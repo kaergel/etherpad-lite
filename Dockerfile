@@ -16,6 +16,7 @@ ENV ETHERPAD_VERSION 1.5.7
 # Get Etherpad-lite's other dependencies
 RUN apt-get update
 RUN apt-get install -y sqlite3 unzip gzip curl python libssl-dev pkg-config build-essential supervisor
+RUN apt-get install -y abiword
 
 WORKDIR /opt/
 
