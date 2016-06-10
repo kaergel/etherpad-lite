@@ -7,20 +7,21 @@
 # Version 1.0
 
 # Use Docker's nodejs, which is based on ubuntu
-FROM node:latest
+FROM node:0.12
 MAINTAINER Bernhard Fürst, bernhard.fuerst@fuerstnet.de
 
 # You may overwrite the version. Use a Git branch or tag from https://github.com/ether/etherpad-lite.
-ENV ETHERPAD_VERSION develop
+ENV ETHERPAD_VERSION 1.5.7
 
 # Get Etherpad-lite's other dependencies
 RUN apt-get update
 RUN apt-get install -y sqlite3 unzip gzip curl python libssl-dev pkg-config build-essential supervisor
+RUN apt-get install -y abiword
 
 WORKDIR /opt/
 
 # Grab the latest Git version
-RUN curl -SLO https://github.com/ether/etherpad-lite/archive/develop.zip \
+RUN curl -SLO https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.zip \
   && unzip ${ETHERPAD_VERSION}.zip \
   && rm ${ETHERPAD_VERSION}.zip \
   && mv etherpad-lite-${ETHERPAD_VERSION} etherpad-lite
