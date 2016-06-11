@@ -9,6 +9,7 @@ At run time:
 * Allow using persistent volumes for data, plugins and settings.
 * Create administration user with configurable password.
 * Choose between _develop_ or _stable_ version.
+* Using Abiword for import/export of DOC or PDF. ODF is not supported yet - it just crashes the abiword binary for unknown reason.
 
 At image build time:
 
