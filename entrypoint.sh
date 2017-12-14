@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+# Replace UID and GID
+sed -i'' -e "s/^\(node:[^:]\):1000:1000:/\1:$USERID:$GROUPID:/" /etc/passwd
+sed -i'' -e "s/^\(node:[^:]\):1000:/\1:$GROUPID:/" /etc/group
+chown -R node:node /home/node
+chown -R node:node /opt/etherpad-lite
 cd /opt/etherpad-lite
 
 # If a settings.json exists on a persistent volume: Make sure the
@@ -19,14 +24,10 @@ if [ -f settings.json.master ] && [ ! -f var/settings.json ]; then
   # Replace sessionKey by something random.
   session_key=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
   sed -i'' -e "s/\"sessionKey\" : \"[^\"]*\"/\"sessionKey\": \"${session_key}\"/" /opt/etherpad-lite/var/settings.json
-  # Replace password by something random. Will be used below.
-  ETHERPAD_ADMIN_PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 fi
 
 # Replace standard admin password.
-if [ $ETHERPAD_ADMIN_PASSWORD ]; then
-  sed -i'' -e "s/\"password\": \"[^\"]*\"/\"password\": \"${ETHERPAD_ADMIN_PASSWORD}\"/" /opt/etherpad-lite/var/settings.json
-fi
+sed -i'' -e "s/\"password\": \"[^\"]*\"/\"password\": \"${ETHERPAD_ADMIN_PASSWORD}\"/" /opt/etherpad-lite/var/settings.json
 
 # In case a host mounted volume does not contain nessecary Node.js modules
 # like etherpad-lite itself or sqlite3 untar the nodes_module directory
