@@ -32,7 +32,7 @@ docker run -p 9001:9001 \
   kaergel/etherpad-docker
 ```
 
-**Specify uid and gid (example 1111)
+**Specify uid and gid (example 1111)**
 
 ```
 docker run -p 9001:9001 \
