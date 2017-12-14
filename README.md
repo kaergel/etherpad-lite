@@ -31,6 +31,7 @@ docker run -p 9001:9001 \
   -e ETHERPAD_ADMIN_PASSWORD='my-secret-password' \
   kaergel/etherpad-docker
 ```
+
 **Specify uid and gid (example 1111)
 
 ```
