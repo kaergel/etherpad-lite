@@ -4,7 +4,7 @@
 
 # Use Docker's nodejs, which is based on ubuntu
 FROM node:7
-MAINTAINER Thomas Kärgel, kaergel@b1-systems.de
+LABEL maintainer="Thomas Kärgel, kaergel@b1-systems.de"
 
 # You may overwrite the version. Use a Git branch or tag from https://github.com/ether/etherpad-lite.
 ENV ETHERPAD_VERSION 1.6.2
@@ -13,9 +13,9 @@ ENV USERID 1000
 ENV GROUPID 1000
 
 # Get Etherpad-lite's other dependencies
-RUN apt-get update
-RUN apt-get install -y sqlite3 unzip gzip curl python libssl-dev pkg-config build-essential supervisor
-RUN apt-get install -y abiword
+RUN apt-get update \
+  && apt-get install -y sqlite3 unzip gzip curl python libssl-dev pkg-config build-essential supervisor \
+  && apt-get install -y abiword
 
 WORKDIR /opt/
 
