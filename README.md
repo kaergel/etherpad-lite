@@ -17,41 +17,37 @@ At image build time:
 * Allows to install another Etherpad Lite version (by Git tag or branch).
 
 # Usage
-
+---
 **Start an Etherpad Lite instance listening on TCP port 9001**
 
 ```
-docker run -p 9001:9001 kaergel/etherpad-docker
+docker run -p 9001:9001 kaergel/etherpad-lite
 ```
-
+---
 **Set password for administration user named _admin_**
-
 ```
 docker run -p 9001:9001 \
   -e ETHERPAD_ADMIN_PASSWORD='my-secret-password' \
-  kaergel/etherpad-docker
+  kaergel/etherpad-lite
 ```
-
+---
 **Specify uid and gid (example 1111)**
-
 ```
 docker run -p 9001:9001 \
   -e USERID=1111
   -e GROUPID=1111
-  kaergel/etherpad-docker
+  kaergel/etherpad-lite
 ```
-
+---
 **Make plugins, database and settings persistent**
-
 ```
 docker run -p 9001:9001 \
   -v /opt/etherpad-lite/var:/opt/etherpad-lite/var \
   -v /opt/etherpad-lite/node_modules:/opt/etherpad-lite/node_modules \
-  kaergel/etherpad-docker
+  kaergel/etherpad-lite
 ```
-
+---
 **Build another version**
-
 Only latest stable release (1.6.2) and _develop_ are available from hub.docker.com. You may build any other release you want by specifying an etherpad-lite branch or tag when building your own image:
 
 ```
