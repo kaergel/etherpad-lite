@@ -4,8 +4,6 @@ set -e
 # Replace UID and GID
 sed -i'' -e "s/^\(node:[^:]\):1000:1000:/\1:$USERID:$GROUPID:/" /etc/passwd
 sed -i'' -e "s/^\(node:[^:]\):1000:/\1:$GROUPID:/" /etc/group
-chown -R node:node /home/node
-chown -R node:node /opt/etherpad-lite
 cd /opt/etherpad-lite
 
 # If a settings.json exists on a persistent volume: Make sure the
@@ -35,5 +33,8 @@ sed -i'' -e "s/\"password\": \"[^\"]*\"/\"password\": \"${ETHERPAD_ADMIN_PASSWOR
 if [ ! -L node_modules/ep_etherpad-lite ] || [ ! -d node_modules/sqlite3 ]; then
   tar zxf node_modules.orig.tgz
 fi
+
+chown -R node:node /home/node
+chown -R node:node /opt/etherpad-lite
 
 exec "$@"

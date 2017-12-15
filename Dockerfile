@@ -41,6 +41,7 @@ COPY entrypoint.sh /entrypoint.sh
 # Add conf files
 ADD supervisor.conf /etc/supervisor/supervisor.conf
 ADD settings.json /opt/etherpad-lite/settings.json.master
+ADD npmrc /usr/local/etc/npmrc
 
 # Allow changes to settings.conf as well as the Sqlite database being persistent.
 VOLUME /opt/etherpad-lite/var

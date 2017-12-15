@@ -2,7 +2,7 @@ version: '3'
 services:
 
   app:
-    image: kaergel/etherpad-lite
+    build: .
     environment:
       - ETHERPAD_VERSION=1.6.2
       - ETHERPAD_ADMIN_PASSWORD=supersecret
