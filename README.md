@@ -34,8 +34,8 @@ docker run -p 9001:9001 \
 **Specify uid and gid (example 1111)**
 ```
 docker run -p 9001:9001 \
-  -e USERID=1111
-  -e GROUPID=1111
+  -e USERID=1111 \
+  -e GROUPID=1111 \
   kaergel/etherpad-lite
 ```
 ---
