@@ -39,7 +39,7 @@ RUN tar zcf node_modules.orig.tgz node_modules/
 COPY entrypoint.sh /entrypoint.sh
 
 # Add conf files
-ADD supervisor.conf /etc/supervisor/supervisor.conf
+ADD supervisord.conf /etc/supervisor/supervisord.conf
 ADD settings.json /opt/etherpad-lite/settings.json.master
 ADD npmrc /usr/local/etc/npmrc
 
@@ -51,4 +51,4 @@ VOLUME /opt/etherpad-lite/node_modules
 
 EXPOSE 9001
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["supervisord", "-c", "/etc/supervisor/supervisor.conf", "-n"]
+CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
