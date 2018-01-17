@@ -4,7 +4,7 @@
 
 # Use Docker's nodejs, which is based on ubuntu
 FROM node:7
-LABEL maintainer="Thomas Kärgel, kaergel@b1-systems.de"
+LABEL maintainer="Thomas Kärgel, kaergel at b1-systems.de"
 
 # You may overwrite the version. Use a Git branch or tag from https://github.com/ether/etherpad-lite.
 ENV ETHERPAD_VERSION 1.6.2
