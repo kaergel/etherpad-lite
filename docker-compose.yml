@@ -4,7 +4,7 @@ services:
   app:
     build: .
     environment:
-      - ETHERPAD_VERSION=1.6.2
+      - ETHERPAD_VERSION=1.8.0
       - ETHERPAD_ADMIN_PASSWORD=supersecret
       - USERID=1000
       - GROUPID=1000

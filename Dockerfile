@@ -3,11 +3,11 @@
 # https://github.com/kaergel/etherpad-docker
 
 # Use Docker's nodejs, which is based on ubuntu
-FROM node:7
+FROM node:13
 LABEL maintainer="Thomas Kärgel, kaergel at b1-systems.de"
 
 # You may overwrite the version. Use a Git branch or tag from https://github.com/ether/etherpad-lite.
-ENV ETHERPAD_VERSION 1.6.2
+ENV ETHERPAD_VERSION 1.8.0
 ENV ETHERPAD_ADMIN_PASSWORD supersecret
 ENV USERID 1000
 ENV GROUPID 1000

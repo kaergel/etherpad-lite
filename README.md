@@ -13,7 +13,7 @@ At run time:
 
 At image build time:
 
-* By default it uses the latest Etherpad Lite 1.6.2 version.
+* By default it uses the latest Etherpad Lite 1.8.0 version.
 * Allows to install another Etherpad Lite version (by Git tag or branch).
 
 # Usage
@@ -48,8 +48,8 @@ docker run -p 9001:9001 \
 ```
 ---
 **Build another version**
-Only latest stable release (1.6.2) and _develop_ are available from hub.docker.com. You may build any other release you want by specifying an etherpad-lite branch or tag when building your own image:
+Only latest stable release (1.8.0) is available from hub.docker.com. You may build any other release you want by specifying an etherpad-lite branch or tag when building your own image:
 
 ```
-docker build -e ETHERPAD_VERSION='1.5.5' .
+docker build -e ETHERPAD_VERSION='1.7.5' .
 ```
